@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;stack_v1.stack.java&apos; to &apos;Queue.java&apos;&#x0D;&#x0A;- Original project: &apos;javaPlayGround&apos;&#x0D;&#x0A;- Original element: &apos;stack_v1.stack.java&apos;&#x0D;&#x0A;- Renamed element: &apos;stack_v1.Queue.java&apos;" description="Rename compilation unit &apos;stack.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;stack_v1{stack.java" name="Queue.java" references="false" stamp="1665069821979" version="1.0"/>
+</session>

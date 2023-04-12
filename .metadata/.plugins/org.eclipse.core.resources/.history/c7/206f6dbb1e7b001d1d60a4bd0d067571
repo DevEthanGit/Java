@@ -1,0 +1,21 @@
+package lab13;
+
+public class WordFisherTester {
+	
+	public static void main(String[] args) {
+		
+		WordFisher alice = new WordFisher("texts/carroll-alice.txt", "stopwords.txt");
+		alice.pruneVocabulary()
+		System.out.println("Alice: \n"
+				+ "word count: " + alice.getWordCount());
+		
+		System.out.println("Unique: "+alice.getNumUniqueWords());
+		System.out.println("Frequencey test thus -1: "+ alice.getFrequency("thus"));
+		WordFisher moby = new WordFisher("texts/moby-dick.txt", "stopwords.txt");
+		System.out.println("Moby: \n"
+				+ "word count: " + moby.getWordCount());
+		System.out.println("Unique: " + moby.getNumUniqueWords());
+		System.out.println("getFrequency 1226 test whale: "+ moby.getFrequency("whale"));
+		System.out.println("getFrequency of handkerchief: " + moby.getFrequency("handkerchief"));
+	}
+}

@@ -1,0 +1,121 @@
+package lab13;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class WordFisher {
+
+	// Please note these variables. they are the state of the object.
+	public HashMap<String, Integer> vocabulary;
+	public List<String> stopwords; // User ArrayList for initialization
+	private String inputTextFile;
+	private String stopwordsFile;
+
+	WordFisher(String inputTextFile, String stopwordsFile) {
+		this.inputTextFile = inputTextFile;
+		this.stopwordsFile = stopwordsFile;
+
+		buildVocabulary();
+		getStopwords();
+	}
+
+	public void buildVocabulary() {
+		vocabulary = new HashMap<String, Integer>();
+		String reader;
+		try {
+			reader = new String(Files.readAllBytes(Paths.get(inputTextFile)));
+			String[] allWords = reader.toLowerCase().replaceAll("[^a-zA-Z0-9 ]", "").split("\\s+"); // any # of spaces 
+			for (String word : allWords) {
+			    // Check if the word already exists in the map
+			    if (vocabulary.containsKey(word)) {
+			        // If it does, get the current frequency and increment it by 1
+			        int frequency = vocabulary.get(word);
+			        frequency++;
+			        // Update the entry in the map with the new frequency
+			        vocabulary.put(word, frequency);
+			    } else {
+			        // If the word does not exist in the map, add it with a frequency of 1
+			    	vocabulary.put(word, 1);
+			    }
+			}
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
+
+		// TODO: load in each word from inputTextFile into the vocabulary.
+		// By the end of this method, vocabulary should map each word to the number of
+		// times it occurs in inputTextFile.
+		// Therefore, as you iterate over words, increase the value that the word maps
+		// to in vocabulary by 1.
+		// If it's not in the vocabulary, then add it with an occurrence of 1.
+		// Use getStopwords as an example of reading from files.
+
+	}
+
+	public void getStopwords() {
+		stopwords = new ArrayList<String>();
+		String word;
+
+		try {
+			BufferedReader input = new BufferedReader(new FileReader(stopwordsFile));
+			while ((word = input.readLine()) != null) {
+				stopwords.add(word);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public int getWordCount() {
+		int totalWords = vocabulary.values().stream().reduce(0, Integer::sum);
+		return totalWords;
+	}
+
+	public int getNumUniqueWords() {
+		return vocabulary.size();
+	}
+
+	public int getFrequency(String word) {
+		int frequencey = -1;
+		if (vocabulary.containsKey(word)) {
+		    frequencey = vocabulary.get(word);
+		}
+		return frequencey;
+	}
+
+	public void pruneVocabulary() {
+		 for (String word : stopwords) {
+			 	vocabulary.remove(word);
+		    }
+	}
+
+	public ArrayList<String> getTopWords(int n) {
+		ArrayList<String> topWords = new ArrayList<String>();
+		
+		// TODO: get the top n words.
+		
+		return topWords;
+	}
+
+	public ArrayList<String> commonPopularWords(int n, WordFisher other) {
+		ArrayList<String> commonPopWords = new ArrayList<String>();
+		
+		// TODO: get the common popular words.
+		
+		return commonPopWords;
+	}
+
+}

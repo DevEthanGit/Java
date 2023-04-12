@@ -1,0 +1,71 @@
+package lab06;
+
+public class Tester {
+    public static void main(String[] args){
+        SortedString zeb = new SortedString("zebra");
+        System.out.println("Sorted Zebra: "+zeb);
+        
+        SortedString joy = new SortedString("joy");
+        SortedString ski = new SortedString("ski");
+        SortedString bel = new SortedString("below");
+        SortedString Elb = new SortedString("Elbow");
+        SortedString elb = new SortedString("elbow");
+        
+        System.out.println("joy.compareTo(ski): "+joy.compareTo(ski));
+        System.out.println("below.compareTo(Elbow): "+bel.compareTo(Elb));
+        System.out.println("below.compareTo(elbow): "+bel.compareTo(elb));//bel.compareto.ski
+        System.out.println("zebra.compareTo(ski): "+zeb.compareTo(ski));
+        System.out.println("-------------------------------------");
+
+        SortedString empty = new SortedString("");
+        System.out.println("AnagramUtil.areAnagrams(empty,zeb): "+AnagramUtil.areAnagrams(empty,zeb));
+        System.out.println("AnagramUtil.areAnagrams(zeb,zeb): "+AnagramUtil.areAnagrams(zeb,zeb));
+        System.out.println("AnagramUtil.areAnagrams(bel,elb): "+AnagramUtil.areAnagrams(bel,elb));
+        System.out.println("AnagramUtil.areAnagrams(zeb,elb): "+AnagramUtil.areAnagrams(zeb,elb));
+        System.out.println("AnagramUtil.areAnagrams(bel,Elb): "+AnagramUtil.areAnagrams(bel,Elb));
+    
+        System.out.println("-------------------------------------");
+        //int vs Integer
+        InsertionSort<Integer> intIS = new InsertionSort<Integer>();
+        Integer[] one = {1};
+        Integer[] two = {8,7};
+        Integer[] three = {1,2,3,4,5,6,7,8,9};
+        Integer[] random = new Integer[10];
+        for(int i = 0; i<random.length;i++) {
+        	random[i] = (int) (Math.random()*1000);
+        }
+        Integer[] sortedInts = intIS.sort(one);
+        String str = "[";
+        for(Integer i: sortedInts) {
+        	str+=i+" ";
+        }
+        str+="]";
+        System.out.println("Sorted One :" +str);
+        
+        sortedInts = intIS.sort(two);
+        String str2 = "[";
+        for(Integer i: sortedInts) {
+        	str2+=i+" ";
+        }
+        str+="]";
+        System.out.println("Sorted two :" +str2);
+        
+        sortedInts = intIS.sort(three);
+        String str3 = "[";
+        for(Integer i: sortedInts) {
+        	str3+=i+" ";
+        }
+        str3+="]";
+        System.out.println("Sorted three :" +str3);
+        
+        sortedInts = intIS.sort(random);
+        String str4 = "[";
+        for(Integer i: sortedInts) {
+        	str4+=i+" ";
+        }
+        str4+="]";
+        System.out.println("Sorted random :" +str4);
+        
+    }
+}
+

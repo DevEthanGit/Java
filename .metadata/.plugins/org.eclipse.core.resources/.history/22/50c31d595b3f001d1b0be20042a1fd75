@@ -1,0 +1,31 @@
+package lab06;
+
+public class Tester {
+    public static void main(String[] args){
+        SortedString zeb = new SortedString("zebra");
+        System.out.println("Sorted Zebra: "+zeb);
+        
+        SortedString joy = new SortedString("joy");
+        SortedString ski = new SortedString("ski");
+        SortedString bel = new SortedString("below");
+        SortedString Elb = new SortedString("Elbow");
+        SortedString elb = new SortedString("elbow");
+        
+        System.out.println("joy.compareTo(ski): "+joy.compareTo(ski));
+        System.out.println("below.compareTo(Elbow): "+bel.compareTo(Elb));
+        System.out.println("below.compareTo(elbow): "+bel.compareTo(elb));//bel.compareto.ski
+        System.out.println("zebra.compareTo(ski): "+zeb.compareTo(ski));
+
+        SortedString empty = new SortedString("");
+        System.out.println("AnagramUtil.areAnagrams(empty,zeb): "+AnagramUtil.areAnagrams(empty,zeb));
+        System.out.println("AnagramUtil.areAnagrams(zeb,zeb): "+AnagramUtil.areAnagrams(zeb,zeb));
+        System.out.println("AnagramUtil.areAnagrams(bel,elb): "+AnagramUtil.areAnagrams(bel,elb));
+        System.out.println("AnagramUtil.areAnagrams(zeb,elb): "+AnagramUtil.areAnagrams(zeb,elb));
+        System.out.println("AnagramUtil.areAnagrams(bel,Elb): "+AnagramUtil.areAnagrams(bel,Elb));
+    
+    
+    
+    
+    }
+}
+

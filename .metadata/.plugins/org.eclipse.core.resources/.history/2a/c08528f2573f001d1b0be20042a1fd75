@@ -1,0 +1,21 @@
+package lab06;
+
+public class Tester {
+    public static void main(String[] args){
+        SortedString zeb = new SortedString("zebra");
+        System.out.print("Sorted Zebra: "+zeb);
+        
+        SortedString joy = new SortedString("joy");
+        SortedString ski = new SortedString("ski");
+        SortedString bel = new SortedString("below");
+        SortedString Elb = new SortedString("Elbow");
+        SortedString elb = new SortedString("elbow");
+        
+        System.out.println("joy.compareTo(ski): "+joy.compareTo(ski));
+        System.out.println("below.compareTo(Elbow): "+bel.compareTo(Elb));
+        System.out.println("below.compareTo(elbow): "+bel.compareTo(elb));//bel.compareto.ski
+        System.out.println("zebra.compareTo(ski): "+zeb.compareTo(ski));//bel.compareTo(Elb)
+
+    }
+}
+
